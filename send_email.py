@@ -30,6 +30,7 @@ msg['From'] = sender_email
 msg['To'] = receiver_email
 
 # Connect to SMTP server and send email
+# Connect to SMTP server and send email
 try:
     server = smtplib.SMTP(smtp_server, smtp_port)
     server.starttls()
@@ -40,4 +41,7 @@ try:
     print('<html><body><h1>Email sent successfully!</h1></body></html>')
 except Exception as e:
     print('Content-Type: text/html\n')
-    print(f'<html><body><h1>Error sending email: {e}</h1></body></html>')
+    print('<html><body><h1>Error sending email:</h1>')
+    traceback.print_exc()
+    print('</body></html>')
+
